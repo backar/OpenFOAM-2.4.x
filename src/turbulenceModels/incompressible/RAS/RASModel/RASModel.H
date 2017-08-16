@@ -223,6 +223,21 @@ public:
             );
         }
 
+        //- Return the effective diffusivity for field named phi
+        virtual tmp<volScalarField> DphiEff(const word phi) const
+        {
+            if (!mesh_.thisDb().foundObject<volScalarField>(phi) &&
+                !mesh_.thisDb().foundObject<volVectorField>(phi))
+                FatalErrorIn
+                (
+                    "RASModel::DphiEff(const word) const"
+                )
+                    << "Uninitited field " << phi << nl
+                    << "check fields." << endl
+                    << exit(FatalError);
+            return nuEff();
+        }
+
         //- Solve the turbulence equations and correct the turbulence viscosity
         virtual void correct();
 

@@ -1,4 +1,7 @@
 porousBafflePressure/porousBafflePressureFvPatchFields.C
 fixedShearStress/fixedShearStressFvPatchVectorField.C
+subSolver/subSolver.C
+icoSsSolver/icoSsSolver.C
+heatSolver/heatSolver.C
 
 LIB = $(FOAM_LIBBIN)/libturbulenceDerivedFvPatchFields

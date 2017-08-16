@@ -1,0 +1,107 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+11
+(
+    Ambient
+    {
+        type            patch;
+        nFaces          20;
+        startFace       1526;
+    }
+    Entrainment
+    {
+        type            patch;
+        nFaces          26;
+        startFace       1546;
+    }
+    ImpingedWall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          31;
+        startFace       1572;
+    }
+    oldInternalFaces
+    {
+        type            patch;
+        nFaces          0;
+        startFace       1603;
+    }
+    Inlet
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          23;
+        startFace       1603;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  Outlet;
+    }
+    Outlet
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          23;
+        startFace       1626;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  Inlet;
+    }
+    ExtPipeWall
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          8;
+        startFace       1649;
+    }
+    Wedge1
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          804;
+        startFace       1657;
+    }
+    Wedge2
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          804;
+        startFace       2461;
+    }
+    Symm
+    {
+        type            symmetryPlane;
+        inGroups        1(symmetryPlane);
+        nFaces          0;
+        startFace       3265;
+    }
+    mappedInlet
+    {
+        type            mappedPatch;
+        inGroups        1(mappedPatch);
+        nFaces          23;
+        startFace       3265;
+        sampleMode      nearestCell;
+        sampleRegion    region0;
+        samplePatch     none;
+        offsetMode      normal;
+        distance        0.5;
+    }
+)
+
+// ************************************************************************* //

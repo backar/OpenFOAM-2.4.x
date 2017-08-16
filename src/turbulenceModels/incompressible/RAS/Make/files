@@ -10,6 +10,8 @@ SpalartAllmaras/SpalartAllmaras.C
 LRR/LRR.C
 LaunderGibsonRSTM/LaunderGibsonRSTM.C
 LaunderSharmaKE/LaunderSharmaKE.C
+LaunderSharma/LaunderSharma.C
+LaunderSharmaYap/LaunderSharmaYap.C
 qZeta/qZeta.C
 LienCubicKE/LienCubicKE.C
 LienCubicKELowRe/LienCubicKELowRe.C
