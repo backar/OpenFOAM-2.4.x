@@ -116,7 +116,11 @@ Foam::solverPerformance Foam::PBiCG::solve
     // --- Calculate normalised residual norm
     solverPerf.initialResidual() =
         gSumMag(rA, matrix().mesh().comm())
-       /normFactor;
+        // Use of sqrt on the norm gives a reasonable sized norm for setups
+        // having velocity components close to zero, e.g. 2D setups like
+        // channels and pipes without any swirling motion.
+        //normFactor;
+        /sqrt(normFactor);
     solverPerf.finalResidual() = solverPerf.initialResidual();
 
     // --- Check convergence, solve if not converged
@@ -193,7 +197,8 @@ Foam::solverPerformance Foam::PBiCG::solve
 
             solverPerf.finalResidual() =
                 gSumMag(rA, matrix().mesh().comm())
-               /normFactor;
+                //normFactor;
+                /sqrt(normFactor);
         } while
         (
             (
